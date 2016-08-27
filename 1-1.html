@@ -16,6 +16,11 @@
                 $(this.ele).html(this.tip);
             }
         };
+        /*
+        *_bindAll()在这里的功能相当于apply()或call()，都是指定onClick()的作用域为divView
+        * 因为onClick()中有this.ele和this.tip
+        * 如果不用_bindAll()，则this指代的是window，而非divView对象，会取不到divView的ele和tip元素。
+         */
         _.bindAll(divView, 'onClick');
         $(divView.ele).bind('click', divView.onClick);
     </script>
